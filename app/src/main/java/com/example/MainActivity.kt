@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.ui.navigation.AppNavigation
-import com.example.ui.theme.MyApplicationTheme
+import com.example.ui.theme.OpenfyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -7,13 +7,14 @@ import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
 import com.google.common.util.concurrent.ListenableFuture
-import com.google.common.util.concurrent.MoreExecutors
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 import javax.inject.Singleton
+
+import androidx.core.content.ContextCompat
 
 @Singleton
 class PlayerController @Inject constructor(
@@ -38,7 +39,7 @@ class PlayerController @Inject constructor(
                 controller?.addListener(playerListener)
                 updatePlaybackState()
             },
-            MoreExecutors.directExecutor()
+            ContextCompat.getMainExecutor(context)
         )
     }
 
