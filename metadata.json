@@ -1,0 +1,6 @@
+{
+  "name": "Openfy",
+  "description": "Premium music streaming and playback application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
