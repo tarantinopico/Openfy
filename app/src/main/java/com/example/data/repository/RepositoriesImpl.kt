@@ -1,5 +1,8 @@
 package com.example.data.repository
 
+import com.example.data.local.AudioDao
+import com.example.data.local.RecentSearchEntity
+import com.example.data.local.FavoriteSongEntity
 import com.example.data.network.AudioApiService
 import com.example.data.network.safeApiCall
 import com.example.data.network.toDomain
@@ -10,7 +13,11 @@ import com.example.domain.model.SearchQuery
 import com.example.domain.model.Song
 import com.example.domain.repository.AudioRepository
 import com.example.domain.repository.LibraryRepository
-import com.example.data.local.FavoriteSongEntity
+import com.example.domain.repository.SearchRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 class LibraryRepositoryImpl @Inject constructor(
@@ -42,11 +49,6 @@ class LibraryRepositoryImpl @Inject constructor(
         return dao.isFavorite(songId)
     }
 }
-
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-import javax.inject.Inject
-import javax.inject.Singleton
 
 @Singleton
 class AudioRepositoryImpl @Inject constructor(

@@ -35,15 +35,14 @@ class PlaybackService : MediaLibraryService() {
             .setHandleAudioBecomingNoisy(true)
             .build()
             
-        val sessionActivityPendingIntent = packageManager?.getLaunchIntentForPackage(packageName)?.let {
-            PendingIntent.getActivity(
-                this, 0, it,
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-        }
+        val intent = Intent(this, com.example.MainActivity::class.java)
+        val sessionActivityPendingIntent = PendingIntent.getActivity(
+            this, 0, intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
         mediaLibrarySession = MediaLibrarySession.Builder(this, player!!, LibrarySessionCallback())
-            .setSessionActivity(sessionActivityPendingIntent!!)
+            .setSessionActivity(sessionActivityPendingIntent)
             .build()
     }
 
